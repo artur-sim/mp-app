@@ -1,0 +1,25 @@
+<div class="row">
+  <div class="col s12 m8 offset-m2 l6 offset-l3">
+    <div class="card-panel login center">
+      <h2>Register</h2>
+      <p *ngIf="errorText !== ''">
+        {{errorText}}
+      </p>
+      <form [formGroup]="signupForm" (ngSubmit)="onSignUp()">
+        <div class="input-field">
+          <i class="material-icons prefix">email</i>
+          <input type="email" name="email" id="email" formControlName="email">
+          <label for="email" class=" ">Email</label>
+        </div>
+        <div class="input-field">
+          <i class="material-icons prefix">https</i>
+          <input type="password" name="password" id="password" formControlName="password">
+          <label for="password" class=" ">Password</label>
+        </div>
+
+        <button type="submit" class="btn btn-large white black-text btn-extended" [disabled]="!signupForm.valid">Register</button>
+        <p>Password must contain 1 uppercase letter, 1 number and 1 symbol </p>
+      </form>
+    </div>
+  </div>
+</div>

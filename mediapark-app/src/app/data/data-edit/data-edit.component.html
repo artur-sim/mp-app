@@ -1,0 +1,18 @@
+<form [formGroup]="editItemForm" (ngSubmit)="onSubmitItemEdited()" class="col s12 " style="margin-top: 15px">
+  <div class="row">
+    <div class="input-field col s12 ">
+      <input type="text" id="product" formControlName="product" name="product">
+      <label class="active" class=" ">Product</label>
+    </div>
+    <div class="input-field col s12 ">
+      <input type="text" id="brand" formControlName="brand" name="brand">
+      <label for="brand">Brand</label>
+    </div>
+    <div class="input-field col s12 ">
+      <input type="number" id="remainder" formControlName="remainder" name="remainder">
+      <label for="remainder">remainder</label>
+    </div>
+  </div>
+  <button type="submit" class="btn" [disabled]="!editItemForm.valid">Save</button>
+  <button type="button" class="btn" (click)="onCancelEdit()" style="margin-left:5px;">Cancel</button>
+</form>
