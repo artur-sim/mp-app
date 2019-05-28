@@ -10,6 +10,7 @@ import { DataInfo } from 'src/app/models/data.model';
   styleUrls: ['./data-edit.component.css']
 })
 export class DataEditComponent implements OnInit {
+
   id: string
   editMode = false;
   editItemForm: FormGroup;
@@ -44,6 +45,7 @@ export class DataEditComponent implements OnInit {
           'product': new FormControl(product, [Validators.required, Validators.minLength(3)]),
           'brand': new FormControl(brand, [Validators.required, Validators.minLength(3)]),
           'remainder': new FormControl(remainder, [Validators.required]),
+
         })
       });
     }
@@ -58,7 +60,7 @@ export class DataEditComponent implements OnInit {
       // console.log(this.id)
     }
 
-    this.router.navigate(['../'], { relativeTo: this.route })
+    this.router.navigate(['../../'], { relativeTo: this.route })
   }
   onCancelEdit() {
     this.router.navigate(['/data'])

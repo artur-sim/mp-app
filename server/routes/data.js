@@ -3,7 +3,7 @@ let mongoose = require('mongoose');
 let jwt = require('jsonwebtoken');
 let router = express.Router();
 
-mongoose.set('debug', true);
+// mongoose.set('debug', true);
 
 function verifyToken(req, res, next) {
     if (!req.headers.authorization) {
@@ -53,12 +53,14 @@ router.get('/edit/:id', verifyToken, (req, res) => {
 })
 router.post('/post', verifyToken, (req, res) => {
 
-    console.log('post')
+    console.log(req.body)
 
     const newData = new Data({
         product: req.body.product,
         brand: req.body.brand,
         remainder: req.body.remainder,
+        columnName: req.body.columnName,
+        columnValue: req.body.columnValue,
 
     });
 
@@ -66,15 +68,24 @@ router.post('/post', verifyToken, (req, res) => {
         res.status(200).send(updateData)
     })
 })
+// router.post('/new/column', verifyToken, (req, res) => {
+
+//     console.log(req.body)
+
+
+// })
 
 router.put('/edit/:id', verifyToken, (req, res) => {
 
+    console.log(req.body)
     Data.findByIdAndUpdate({
         _id: req.params.id
     }, {
             product: req.body.product,
             brand: req.body.brand,
             remainder: req.body.remainder,
+            columnName: req.body.columnName,
+            columnValue: req.body.columnValue,
         }).then(data => {
 
 

@@ -6,15 +6,19 @@ import { Pipe, PipeTransform } from '@angular/core';
 })
 export class SortPipe implements PipeTransform {
 
-  transform(value: any, propName: string): any {
+  transform(value: any[], path: [], order: number): any {
+    if (!value || !path || !order) return value;
 
     return value.sort((a, b) => {
-      if (a[propName] > b[propName]) {
-        return 1
-      } else {
-        return -1
-      }
-    });
+      // We go for each property followed by path
+      path.forEach(property => {
+        a = a[property];
+        b = b[property];
+      })
+
+      // Order * (-1): We change our order
+      return a > b ? order : order * (- 1);
+    })
   }
 
 }

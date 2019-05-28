@@ -12,6 +12,12 @@ let DataSchema = new mongoose.Schema({
     remainder: {
         type: Number,
     },
+    columnName: {
+        type: String,
+    },
+    columnValue: {
+        type: String,
+    },
 
 })
 

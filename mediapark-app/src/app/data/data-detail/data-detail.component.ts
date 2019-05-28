@@ -21,6 +21,7 @@ export class DataDetailComponent implements OnInit {
       'product': new FormControl(null, [Validators.required, Validators.minLength(3)]),
       'brand': new FormControl(null, [Validators.required, Validators.minLength(3)]),
       'remainder': new FormControl(null, [Validators.required, Validators.pattern(/^[0-9]{1,}$/)]),
+
     })
   }
 

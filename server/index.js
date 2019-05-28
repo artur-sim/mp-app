@@ -22,7 +22,7 @@ app.use((req, res, next) => {
 
 //  connecting mongoose
 let db = require('./config/database')
-mongoose.connect(db.MongoURI, { useNewUrlParser: true }, (err) => {
+mongoose.connect(db.MongoURI, { useNewUrlParser: true, useFindAndModify: false }, (err) => {
     if (!err) console.log('Connected to MongoDB')
 })
 //  bp middleware

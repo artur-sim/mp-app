@@ -7,11 +7,13 @@ export class DataInfo {
     public remainder: number;
 
 
-    constructor(product: string, brand: string, remainder: number, ) {
+
+    constructor(product: string, brand: string, remainder: number) {
 
         this.product = product;
         this.brand = brand;
         this.remainder = remainder;
+
 
 
     }

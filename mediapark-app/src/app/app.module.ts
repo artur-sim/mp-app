@@ -6,7 +6,7 @@ import { LoginComponent } from './auth/login/login.component';
 import { SingupComponent } from './auth/singup/singup.component';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AppRoutingModule } from './appRouter.module';
-import { ReactiveFormsModule } from '@angular/forms';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { UserAuthService } from './services/auth.service';
 import { DataComponent } from './data/data.component';
 import { DataComponentService } from './services/data.service';
@@ -16,6 +16,7 @@ import { DataDetailComponent } from './data/data-detail/data-detail.component';
 import { DataColumnComponent } from './data/data-column/data-column.component';
 import { AuthGuard } from './guards/auth-guard.guard';
 import { TokenInterceptorService } from './services/token-interceptor.service';
+import { DataListComponent } from './data/data-list/data-list.component';
 
 
 
@@ -28,10 +29,12 @@ import { TokenInterceptorService } from './services/token-interceptor.service';
     DataEditComponent,
     SortPipe,
     DataDetailComponent,
-    DataColumnComponent
+    DataColumnComponent,
+    DataListComponent
   ],
   imports: [
     BrowserModule,
+    FormsModule,
     ReactiveFormsModule,
 
     HttpClientModule,

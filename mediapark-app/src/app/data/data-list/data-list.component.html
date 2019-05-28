@@ -1,0 +1,32 @@
+<nav>
+  <div class="nav-wrapper white">
+    <ul id="nav-mobile" class="right">
+      <li><a class="btn red" (click)="onLogOut()">Logout</a></li>
+    </ul>
+  </div>
+</nav>
+
+<table>
+  <thead>
+    <tr>
+      <th> <a (click)="sortBy('product')" style="cursor: pointer">Product</a> </th>
+      <th> <a (click)="sortBy('brand')" style="cursor: pointer">Brand</a> </th>
+      <th> <a (click)="sortBy('remainder')" style="cursor: pointer">Remainer</a></th>
+
+      <th>Action</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr *ngFor="let item of dataInfo | sort:path:order">
+      <td>{{item.product}}</td>
+      <td>{{item.brand}}</td>
+      <td>{{item.remainder}}</td>
+
+      <td><a class=" btn" (click)="onEditItem(item._id)">edit</a> <a class="btn red" (click)="onDeleteItem(item._id)" style="margin-left: 5px;">delete</a></td>
+    </tr>
+  </tbody>
+</table>
+<hr>
+
+<button class="btn" (click)="onaddNewItem()">Add Product</button>
